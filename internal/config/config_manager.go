@@ -6,7 +6,6 @@ import (
 
 type registerConfig struct {
 	config.Manager
-	dbPath string
 }
 
 var instance *registerConfig

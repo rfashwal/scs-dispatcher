@@ -30,7 +30,10 @@ func main() {
 	if err != nil {
 		log.Fatalf("MQ.Publisher init: %s", err)
 	}
-	pub.RabbitConnector.DeclareTopicExchange(conf.TemperatureTopic())
+	err = pub.RabbitConnector.DeclareTopicExchange(conf.TemperatureTopic())
+	if err != nil {
+		log.Fatal("DeclareTopicExchangeerr", err)
+	}
 
 	svc, err := internal.NewService(pub, conf)
 	if err != nil {

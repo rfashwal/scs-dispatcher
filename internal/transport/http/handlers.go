@@ -32,7 +32,6 @@ func publishSensorDataHandler(s internal.Service) func(c *gin.Context) {
 			c.JSON(http.StatusBadRequest, err.Error())
 			return
 		}
-
 		err := s.PublishSensorData(sensorReadingRequest)
 		if err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"error": fmt.Sprint(err)})

@@ -10,4 +10,4 @@ race:
 	go test -race ./... -short
 
 image:
-	docker build -t rfashwal/dispatcher -f Dockerfile .
+	docker build -t rfashwal/scs-dispatcher -f Dockerfile .

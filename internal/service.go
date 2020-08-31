@@ -17,7 +17,7 @@ type Service interface {
 }
 
 func NewService(publisher *publishing.Publisher, conf config.Manager) (Service, error) {
-	return service{publisher: publisher}, nil
+	return service{publisher: publisher, conf: conf}, nil
 }
 
 type service struct {
@@ -26,9 +26,8 @@ type service struct {
 }
 
 func (s service) PublishSensorData(req dto.SensorReadingRequest) error {
-
 	switch req.SensorType {
-	case "temprature":
+	case "temperature":
 		parsedValue, err := strconv.ParseFloat(req.Value, 64)
 		if err != nil {
 			return err
